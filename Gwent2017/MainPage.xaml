@@ -7,8 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <ScrollViewer ZoomMode="Enabled" MaxZoomFactor="10"
+              HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Visible">
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="button" Content="Deal" HorizontalAlignment="Left" Margin="44,290,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button" Click="Button_Click" Content="Deal" HorizontalAlignment="Left" Margin="44,290,0,0" VerticalAlignment="Top"/>
         <Button x:Name="button1" Content="Quit" HorizontalAlignment="Left" Margin="44,361,0,0" VerticalAlignment="Top"/>
         <Button x:Name="button2" Content="Forfeit" HorizontalAlignment="Left" Margin="44,444,0,0" VerticalAlignment="Top"/>
         <Border x:Name="OpRowRange" BorderBrush="Black" HorizontalAlignment="Left" Height="100" Margin="211,64,0,0" VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
@@ -22,5 +25,18 @@
         <Image x:Name="OpGrave" Source="ms-appx:///Images/cardcover.jpg" HorizontalAlignment="Left" Height="100" Margin="1209,165,0,0" VerticalAlignment="Top" Width="121"/>
         <Border x:Name="P1Hand" BorderBrush="Black" HorizontalAlignment="Left" Height="100" Margin="211,900,0,0" VerticalAlignment="Top" Width="993" BorderThickness="1,1,1,1"/>
 
-    </Grid>
+            <!-- **************************Test Code To Be Deleted********************************************** -->
+                           <ListView x:Name="gwentJsonCardTester">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Height="50" Width="50" Text="{Binding name}"></TextBlock>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+            <!-- **************************Test Code To Be Deleted********************************************** -->
+        </Grid>
+    </ScrollViewer>
+
 </Page>
