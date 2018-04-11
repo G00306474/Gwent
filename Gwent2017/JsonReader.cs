@@ -1,40 +1,16 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
-namespace Gwent2017
+class clsCards
 {
-    [DataContract]
-    public class GwentCards
-    {
-        private string _code = string.Empty;
-        [DataMember]
-        public string name
-        {
-            get;
-            set;
-        }
-        [DataMember]
-        public string faction
-        {
-            get;
-            set;
-        }
-        [DataMember]
-        public string positions
-        {
-            get;
-            set;
-        }
-        [DataMember]
-        public int strength
-        {
-            get;
-            set;
-        }
-        [DataMember]
-        public string art
-        {
-            get;
-            set;
-        }
-    }
+    
+
+    public int Id { get; set; }
+        public string art { get; set; }
+        public List<object> categories { get; set; }
+        public string faction { get; set; }
+        public string name { get; set; }
+        public string positions { get; set; }
+        public int strength { get; set; }
+    
 }

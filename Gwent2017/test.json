@@ -1,8 +1,48 @@
-"1": {
-  "categories": [],
-  "name": "Bloody Baron",
-  "faction": "Northern Realms",
-  "positions": "Siege",
-  "strength": 6,
-  "art": "C:\\Users\\KMora\\source\\repos\\Gwent2017\\Gwent2017\\Images\\big-Assire.JPG"
-}
+[
+  {
+    "Id": 1,
+    "art": "C:\\Users\\KMora\\source\\repos\\Gwent2017\\Gwent2017\\Images\\big-Assire.JPG",
+    "categories": [],
+    "faction": "Northern Realms",
+    "name": "Bloody Baron",
+    "positions": "Siege",
+    "strength": 6
+  },
+  {
+    "Id": 2,
+    "art": "C:\\Users\\KMora\\source\\repos\\Gwent2017\\Gwent2017\\Images\\big-Assire.JPG",
+    "categories": [],
+    "faction": "Northern Realms",
+    "name": "Bloody Baron",
+    "positions": "Siege",
+    "strength": 6
+  },
+  {
+    "Id": 3,
+    "art": "C:\\Users\\KMora\\source\\repos\\Gwent2017\\Gwent2017\\Images\\big-Assire.JPG",
+    "categories": [],
+    "faction": "Northern Realms",
+    "name": "Bloody Baron",
+    "positions": "Siege",
+    "strength": 6
+  },
+  {
+    "Id": 4,
+    "art": "C:\\Users\\KMora\\source\\repos\\Gwent2017\\Gwent2017\\Images\\big-Assire.JPG",
+    "categories": [],
+    "faction": "Northern Realms",
+    "name": "Bloody Baron",
+    "positions": "Siege",
+    "strength": 6
+  },
+  {
+    "Id": 5,
+    "art": "C:\\Users\\KMora\\source\\repos\\Gwent2017\\Gwent2017\\Images\\big-Assire.JPG",
+    "categories": [],
+    "faction": "Northern Realms",
+    "name": "Bloody Baron",
+    "positions": "Siege",
+    "strength": 6
+  }
+
+]

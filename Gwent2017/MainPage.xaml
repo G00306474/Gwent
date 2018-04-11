@@ -11,30 +11,29 @@
               HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Visible">
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="button" Click="Button_Click" Content="Deal" HorizontalAlignment="Left" Margin="44,290,0,0" VerticalAlignment="Top"/>
+        
         <Button x:Name="button1" Content="Quit" HorizontalAlignment="Left" Margin="44,361,0,0" VerticalAlignment="Top"/>
         <Button x:Name="button2" Content="Forfeit" HorizontalAlignment="Left" Margin="44,444,0,0" VerticalAlignment="Top"/>
         <Border x:Name="OpRowRange" BorderBrush="Black" HorizontalAlignment="Left" Height="100" Margin="211,64,0,0" VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
         <Border x:Name="OpRowMid" BorderBrush="Black" HorizontalAlignment="Left" Height="96" Margin="211,169,0,0" VerticalAlignment="Top" Width="993" RenderTransformOrigin="0.503,-1.532" RequestedTheme="Default" BorderThickness="2,2,2,2"/>
         <Border x:Name="OpRowNear" BorderBrush="Black" HorizontalAlignment="Left" Height="100" Margin="211,265,0,0" VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
         <Border x:Name="P1RowNear" BorderBrush="Black" HorizontalAlignment="Left" Height="100" Margin="211,540,0,0" VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
-        <Border x:Name="P1RowRange" BorderBrush="Black" HorizontalAlignment="Left" Height="100" Margin="211,750,0,0" VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
+        <Border x:Name="P1RowRange" BorderBrush="Black" Background="White" HorizontalAlignment="Left" Height="100" Margin="211,750,0,0" VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
         <Border x:Name="P1RowMid" BorderBrush="Black" HorizontalAlignment="Left" Height="100" Margin="211,645,0,0" VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
         <Image x:Name="P1Grave" Source="ms-appx:///Images/cardcover.jpg" HorizontalAlignment="Left" Height="100" Margin="1209,645,0,0" VerticalAlignment="Top" Width="121"  />
 
         <Image x:Name="OpGrave" Source="ms-appx:///Images/cardcover.jpg" HorizontalAlignment="Left" Height="100" Margin="1209,165,0,0" VerticalAlignment="Top" Width="121"/>
-        <Border x:Name="P1Hand" BorderBrush="Black" HorizontalAlignment="Left" Height="100" Margin="211,900,0,0" VerticalAlignment="Top" Width="993" BorderThickness="1,1,1,1"/>
-
-            <!-- **************************Test Code To Be Deleted********************************************** -->
-                           <ListView x:Name="gwentJsonCardTester">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Height="50" Width="50" Text="{Binding name}"></TextBlock>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
+            <StackPanel Orientation="Horizontal">
+                <Image x:Name="P1Hand1" Source="null"  HorizontalAlignment="Left" Height="100" Margin="211,900,0,0" VerticalAlignment="Top" Width="993" />
+                <Image x:Name="P1Hand2" Source="null"  HorizontalAlignment="Left" Height="100" Margin="211,900,0,0" VerticalAlignment="Top" Width="993" />
+                <Image x:Name="P1Hand3" Source="null"  HorizontalAlignment="Left" Height="100" Margin="211,900,0,0" VerticalAlignment="Top" Width="993" />
+                <Image x:Name="P1Hand4" Source="null"  HorizontalAlignment="Left" Height="100" Margin="211,900,0,0" VerticalAlignment="Top" Width="993" />
+                <Image x:Name="P1Hand5" Source="null"  HorizontalAlignment="Left" Height="100" Margin="211,900,0,0" VerticalAlignment="Top" Width="993" />
+            </StackPanel>
+            <Button x:Name="button" Content="Deal" HorizontalAlignment="Left" Margin="44,290,0,0" VerticalAlignment="Top" Click="button_Click_1" ClickMode="Release"/>
+        
+          
+                           
             <!-- **************************Test Code To Be Deleted********************************************** -->
         </Grid>
     </ScrollViewer>
