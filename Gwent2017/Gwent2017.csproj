@@ -107,9 +107,9 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="Gwent2017_TemporaryKey.pfx" />
-    <None Include="test.json">
+    <Content Include="test.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\big-Assire.JPG" />

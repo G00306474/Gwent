@@ -19,6 +19,7 @@ using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
 using Windows.UI;
+using System.Collections.ObjectModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -35,6 +36,7 @@ namespace Gwent2017
         public MainPage()
         {
             this.InitializeComponent();
+           
         }
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -51,10 +53,8 @@ namespace Gwent2017
             
             Random rnd = new Random();
             
-
             while (p1 != 5)
             {
-                
                 p1Cards[p1] = rnd.Next(1, 5);
                 p1++;
             }
@@ -72,7 +72,7 @@ namespace Gwent2017
 
             // else, create the list from the file provided.
             else { loadLocalDataAsync(); }
-            Round1(p1Cards, p2Cards);
+            Round1(p1Cards, p2Cards,myList);
         }
 
         private async void loadLocalDataAsync()
@@ -80,15 +80,12 @@ namespace Gwent2017
             // Retrieve data from mydogs.txt
             // get the file from the location that the app is installed
             // then read the text
-            string filepath = "test.json";
-            var file = await Package.Current.InstalledLocation.GetFileAsync(filepath);
+            string filename = "test.json";
+            var file = await Package.Current.InstalledLocation.GetFileAsync(filename);
 
             var result = await FileIO.ReadTextAsync(file);
 
             // Parse the JSON data
-
-
-
             try
             {
                 var cardJList = JsonArray.Parse(result);
@@ -101,7 +98,8 @@ namespace Gwent2017
                 throw;
             }
         }
-        private void CreateCardList(JsonArray jsonData)
+        #region Json array
+        private List<clsCards>  CreateCardList(JsonArray jsonData)
         {
             foreach (var item in jsonData)
             {
@@ -133,7 +131,7 @@ namespace Gwent2017
                             card.positions = value.GetString();
                             break;
                         case "strength":
-                             card.strength = Convert.ToInt32((value.GetString()));
+                             card.strength = (int)value.GetNumber();
                             break;
                         case "art":
                             card.art = value.GetString();
@@ -144,39 +142,43 @@ namespace Gwent2017
                 myList.Add(card);
 
             } // end foreach (var item in array)
+            return myList;
         }
-
-        private void Round1(int[] p1Cards, int[] p2Cards)
+        #endregion
+        #region PlayersTurn
+        private void Round1(int[] p1Cards, int[] p2Cards,List<clsCards> myList)
         {
             int p1Score;
             int p2Score;
+            int turn = 0;
 
-            for (int i = 0; i == 5; i++)
+
+            P1Hand = myList[3];
+
+            if (turn == 0)
             {
-                
-            if (myList.Contains(new clsCards { Id = p1Cards[i] }))
+                for (int i = 0; i == 5; i++)
                 {
-                    //defaultImage = card.art;
-                    P1Hand1.Source = new BitmapImage(new Uri(defaultImage));
-                    P1Hand1.Tapped +=Card_Tapped;
-                    P1Hand2.Source = new BitmapImage(new Uri(defaultImage));
-                    P1Hand3.Source = new BitmapImage(new Uri(defaultImage));
-                    P1Hand4.Source = new BitmapImage(new Uri(defaultImage));
-                    P1Hand5.Source = new BitmapImage(new Uri(defaultImage));
-                }
 
+                    
 
+                }//for end
 
-
-            }
-            
+                turn = 1;
+               
+            }//p1Turn end
+            if (turn == 1) {
+            //p2turn goes here
+                turn = 0;
+            }//p2turn
         }
         private void Card_Tapped(object sender, TappedRoutedEventArgs e)
         {
             String postion="test";
             if (postion.Equals("Siege")) {
 
-                P1RowRange.Background = new SolidColorBrush(Colors.Yellow); 
+                P1RowRange.Background = new SolidColorBrush(Colors.Yellow);
+                //P1RowRange.Tapped = 
             }
             if (postion.Equals("Range"))
             {
@@ -187,6 +189,6 @@ namespace Gwent2017
                 P1RowRange.Background = new SolidColorBrush(Colors.Yellow); 
             }
         }
-        
+        #endregion
     }//close mainpage
 }
