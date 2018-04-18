@@ -9,29 +9,72 @@
 
     <ScrollViewer ZoomMode="Enabled" MaxZoomFactor="10"
               HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Visible">
-    
-    <Grid Width="1000" Height="1000" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
-        <Button x:Name="button1" Content="Quit" HorizontalAlignment="Left" Margin="44,361,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button2" Content="Forfeit" HorizontalAlignment="Left" Margin="44,444,0,0" VerticalAlignment="Top"/>
-       
-        <Border x:Name="OpRowRange" BorderBrush="Black" HorizontalAlignment="Left" Height="100" Margin="211,64,0,0" VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
-        <Border x:Name="OpRowMid" BorderBrush="Black" HorizontalAlignment="Left" Height="96" Margin="211,169,0,0" VerticalAlignment="Top" Width="993" RenderTransformOrigin="0.503,-1.532" RequestedTheme="Default" BorderThickness="2,2,2,2"/>
-        <Border x:Name="OpRowNear" BorderBrush="Black" HorizontalAlignment="Left" Height="100" Margin="211,265,0,0" VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
-        
-        <Border x:Name="P1RowNear" BorderBrush="Black" HorizontalAlignment="Left" Height="100" Margin="211,540,0,0" VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
-        <Border x:Name="P1RowRange" BorderBrush="Black" Background="White" HorizontalAlignment="Left" Height="100" Margin="211,750,0,0" VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
-        <Border x:Name="P1RowMid" BorderBrush="Black" HorizontalAlignment="Left" Height="100" Margin="211,645,0,0" VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
+        <Grid>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                    <Button x:Name="button1" Content="Quit" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Button x:Name="button" Content="Deal" HorizontalAlignment="Left"  VerticalAlignment="Top" Click="button_Click_1" ClickMode="Release" RenderTransformOrigin="-4.04,-7.5"/>
+                    <Button x:Name="button2" Content="Forfeit" HorizontalAlignment="Left"  VerticalAlignment="Top" />
+                    <StackPanel>
+                        <!-- Stackpanel Play Area-->
+                        <Border x:Name="OpRowRange" BorderBrush="Black" HorizontalAlignment="Left" Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
+                        <Border x:Name="OpRowMid" BorderBrush="Black" HorizontalAlignment="Left" Height="100"  VerticalAlignment="Top" Width="993"  BorderThickness="2,2,2,2"/>
+                        <Border x:Name="OpRowNear" BorderBrush="Black" HorizontalAlignment="Left" Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
+                        <StackPanel>
+                            <Image x:Name="OpGrave" Source="ms-appx:///Images/cardcover.jpg" HorizontalAlignment="Right" Height="100"  VerticalAlignment="Top" Width="121"  />
+                        </StackPanel>
+                                <Border x:Name="Divider" BorderBrush="Black"   HorizontalAlignment="Left" Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2">
+                            <Border.Background>
+                                <AcrylicBrush TintColor="#CC813939"/>
+                            </Border.Background>
+                        </Border>
+                        <StackPanel>
+                            <!-- Stackpanel Grave-->
+                            <Image x:Name="P1Grave" Source="ms-appx:///Images/cardcover.jpg" HorizontalAlignment="Right" Height="100"  VerticalAlignment="Top" Width="121"  />
+                        </StackPanel>
+                        <!-- Stackpanel Grave-->
+                        <Border x:Name="P1RowNear" BorderBrush="Black" HorizontalAlignment="Left" Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
+                        <Border x:Name="P1RowRange" BorderBrush="Black" HorizontalAlignment="Left" Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
+                        <Border x:Name="P1RowMid" BorderBrush="Black" HorizontalAlignment="Left" Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
 
-        <Image x:Name="P1Grave" Source="ms-appx:///Images/cardcover.jpg" HorizontalAlignment="Left" Height="100" Margin="1209,645,0,0" VerticalAlignment="Top" Width="121"  />
-        <Image x:Name="OpGrave" Source="ms-appx:///Images/cardcover.jpg" HorizontalAlignment="Left" Height="100" Margin="1209,165,0,0" VerticalAlignment="Top" Width="121"/>
+                    </StackPanel>
+                    <!-- Stackpanel Play Area-->
 
-        
-        <Button x:Name="button" Content="Deal" HorizontalAlignment="Left" Margin="44,290,0,0" VerticalAlignment="Top" Click="button_Click_1" ClickMode="Release"/>
-       
-
+                </StackPanel>
+                <StackPanel>
+                    <GridView ItemsSource="{Binding collection}" x:Name="cardArt">
+                        <GridView.ItemTemplate>
+                            <DataTemplate >
+                                <StackPanel>
+                                    <!-- that will dispaly the binded data will als dispaly the text each time its called -->
+                                    <Image Source="{Binding art}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                </StackPanel>
+            </StackPanel>
 
         </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </ScrollViewer>
 
 </Page>

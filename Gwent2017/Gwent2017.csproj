@@ -107,6 +107,15 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="Gwent2017_TemporaryKey.pfx" />
+    <Content Include="Images\big-Albrich.JPG" />
+    <Content Include="Images\big-Avallach.JPG" />
+    <Content Include="Images\big-Beautiful.JPG" />
+    <Content Include="Images\big-Dandelion.JPG" />
+    <Content Include="Images\big-Dennis.JPG" />
+    <Content Include="Images\big-Eithne.JPG" />
+    <Content Include="Images\big-Emiel.JPG" />
+    <Content Include="Images\big-fiend.JPG" />
+    <Content Include="Images\big-Geralt.jpg" />
     <Content Include="test.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

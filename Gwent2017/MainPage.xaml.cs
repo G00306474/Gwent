@@ -30,30 +30,36 @@ namespace Gwent2017
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private static string JsonFile = "test.json";
         private string defaultImage = "ms-appx:///Images/cardcover.jpg";
-        private List<clsCards> myList = new List<clsCards>();
+        private List<Card> myList = new List<Card>();
+        private List<Card> p1Hand = new List<Card>();
+        private List<Card> p2Hand = new List<Card>();
+        private Random rnd = new Random();
 
         public MainPage()
         {
             this.InitializeComponent();
-           
+            collection = new ObservableCollection<Card>();
+            this.DataContext = this;
+
         }
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("TEST");
-            
             //text1.Text = "Click event occurs on Hover.";
             Deal();
         }
+
         public void Deal()
         {
             int p1 = 0;
             int p2 = 0;
             int[] p1Cards = new int[5];
             int[] p2Cards = new int[5];
+
             
-            Random rnd = new Random();
             
+
             while (p1 != 5)
             {
                 p1Cards[p1] = rnd.Next(1, 5);
@@ -71,75 +77,156 @@ namespace Gwent2017
             Round1(p1Cards, p2Cards, myList);
         }
 
-   
+
         #region Json array
-        private List<clsCards>  CreateCardList()
+        List<Card> CreateCardList()
         {
-
-
-            string FilePath = Path.Combine(Package.Current.InstalledLocation.Path, "test.json");
-
-            using (StreamReader file = File.OpenText(FilePath))
+            using (StreamReader r = File.OpenText("test.json"))
             {
-
-
-                var json = file.ReadToEnd();
-                var result = JsonConvert.DeserializeObject<RootObject>(json);
-                Debug.WriteLine(result.ToString());//wirte json to console 
-
-               //var teseter= result.
+                string json = r.ReadToEnd();
+                myList = JsonConvert.DeserializeObject<List<Card>>(json);
+               // Debug.WriteLine(json);
             }
+
 
             return myList;
         }
+
         #endregion
         #region PlayersTurn
-        private void Round1(int[] p1Cards, int[] p2Cards,List<clsCards> myList)
+        private void Round1(int[] p1Cards, int[] p2Cards, List<Card> myList)
         {
             int p1Score;
             int p2Score;
             int turn = 0;
-            Debug.WriteLine(myList.Count);
-            foreach (clsCards card in myList) {
-              //  Debug.WriteLine("Tester"+card.name);
-            }
-            
-           // P1Hand = myList[3];
-            //int id = 101;
-           // var cardToFind = myList.FirstOrDefault(card => card.Id.Any(id => id.P1Hand[i] == idToFind));
+            int t = 0;
+            int i = 0;
+            Debug.WriteLine("size"  + myList.Count);
+            #region Display cards in myList
+            Debug.WriteLine("  ");
+            Debug.WriteLine("Cards Read in From Json ");
+            foreach (Card card in myList)
+             {
+                 Debug.WriteLine("  " );
+                 Debug.WriteLine("Card: " + t);
+                 Debug.WriteLine("ID: " + card.Id );
+                 Debug.WriteLine("Art: " + card.art);
+                 Debug.WriteLine("Faction: " + card.faction);
+                 Debug.WriteLine("Name: " + card.name);
+                 Debug.WriteLine("Positions: " + card.positions);
+                 Debug.WriteLine("Strength: " + card.strength);
+                t++;
 
+             }
+            #endregion
+            /*while runs 5 times and adds 5 cards from the lsit to each players hand*/
+            while (i != 5)
+            {
+                foreach (Card card in myList)
+                {
+                    if (card.Id == p1Cards[i])
+                    {
+                        var moveCard = myList[i];
+                        // myList.RemoveAt(i);
+                        p1Hand.Add(card);
+                        
+                    }
+
+                }
+                foreach (Card card in myList)
+                {
+                    if (card.Id == p2Cards[i])
+                    {
+                        var moveCard = myList[i];
+                        // myList.RemoveAt(i);
+                        p2Hand.Add(card);
+
+                    }
+
+                }
+                i++;
+            }
+            #region Print Hands to Debug
+            Debug.WriteLine("  ");
+            Debug.WriteLine("P1 Hand  ");
+            foreach (Card card in p1Hand)
+            {
+
+                Debug.WriteLine("  ");
+                Debug.WriteLine("Card: " + t);
+                Debug.WriteLine("ID: " + card.Id);
+                Debug.WriteLine("Art: " + card.art);
+                Debug.WriteLine("Faction: " + card.faction);
+                Debug.WriteLine("Name: " + card.name);
+                Debug.WriteLine("Positions: " + card.positions);
+                Debug.WriteLine("Strength: " + card.strength);
+                t++;
+            }
+            Debug.WriteLine("  ");
+            Debug.WriteLine("P2 Hand  ");
+            foreach (Card card in p2Hand)
+            {
+
+                Debug.WriteLine("  ");
+                Debug.WriteLine("Card: " + t);
+                Debug.WriteLine("ID: " + card.Id);
+                Debug.WriteLine("Art: " + card.art);
+                Debug.WriteLine("Faction: " + card.faction);
+                Debug.WriteLine("Name: " + card.name);
+                Debug.WriteLine("Positions: " + card.positions);
+                Debug.WriteLine("Strength: " + card.strength);
+                t++;
+            }
+            #endregion
+            DisplayHand(p1Hand,p2Hand);
             if (turn == 0)
             {
-                for (int i = 0; i == 5; i++)
+                for ( i = 0; i == 5; i++)
                 {
 
-                    
+
 
                 }//for end
 
                 turn = 1;
-               
+
             }//p1Turn end
-            if (turn == 1) {
-            //p2turn goes here
+            if (turn == 1)
+            {
+                //p2turn goes here
                 turn = 0;
             }//p2turn
         }
+        public ObservableCollection<Card> collection { get; set; }
+        private void DisplayHand(List<Card> p1Hand, List<Card> p2Hand)
+        {
+
+            foreach (Card card in p1Hand)
+            {
+                //var source = card.art;
+                
+                collection.Add(card);
+               
+            }
+
+            cardArt.ItemsSource = collection;
+        }
         private void Card_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            String postion="test";
-            if (postion.Equals("Siege")) {
+            String postion = "test";
+            if (postion.Equals("Siege"))
+            {
 
                 P1RowRange.Background = new SolidColorBrush(Colors.Yellow);
                 //P1RowRange.Tapped = 
             }
             if (postion.Equals("Range"))
             {
-                P1RowRange.Background = new SolidColorBrush(Colors.Yellow); 
+                P1RowRange.Background = new SolidColorBrush(Colors.Yellow);
             }
             if (postion.Equals("Combat"))
             {
-                P1RowRange.Background = new SolidColorBrush(Colors.Yellow); 
+                P1RowRange.Background = new SolidColorBrush(Colors.Yellow);
             }
         }
         #endregion

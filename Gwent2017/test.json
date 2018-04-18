@@ -1,46 +1,98 @@
-{
-  "cards": [
-
-    {
-      "Id": 1,
-      "art": "Images\\big-Assire.JPG",
-      "faction": "Northern Realms",
-      "name": "Bloody Baron",
-      "positions": "Siege",
-      "strength": 6
-    },
-    {
-      "Id": 2,
-      "art": "Images\\big-Assire.JPG",
-      "faction": "Northern Realms",
-      "name": "Bloody Baron",
-      "positions": "Siege",
-      "strength": 6
-    },
-    {
-      "Id": 3,
-      "art": "Images\\big-Assire.JPG",
-      "faction": "Northern Realms",
-      "name": "Bloody Baron",
-      "positions": "Siege",
-      "strength": 6
-    },
-    {
-      "Id": 4,
-      "art": "Images\\big-Assire.JPG",
-      "faction": "Northern Realms",
-      "name": "Bloody Baron",
-      "positions": "Siege",
-      "strength": 6
-    },
-    {
-      "Id": 5,
-      "art": "Images\\big-Assire.JPG",
-      "faction": "Northern Realms",
-      "name": "Bloody Baron",
-      "positions": "Siege",
-      "strength": 6
-    }
-
-  ]
-}
+[
+  {
+    "Id": 1,
+    "art": "Images\\big-Assire.JPG",
+    "faction": "Northern Realms",
+    "name": "Bloody Baron",
+    "positions": "Siege",
+    "strength": 6
+  },
+  {
+    "Id": 2,
+    "art": "Images\\big-Ciri.JPG",
+    "faction": "Northern Realms",
+    "name": "BALLISTA",
+    "positions": "Siege",
+    "strength": 6
+  },
+  {
+    "Id": 3,
+    "art": "Images\\big-Cynthia.JPG",
+    "faction": "Northern Realms",
+    "name": "BAN ARD TUTOR",
+    "positions": "Range",
+    "strength": 6
+  },
+  {
+    "Id": 4,
+    "art": "Images\\big-Albrich.JPG",
+    "faction": "Northern Realms",
+    "name": "BLUE STRIPES COMMANDO ",
+    "positions": "Combat",
+    "strength": 6
+  },
+  {
+    "Id": 5,
+    "art": "Images\\big-Avallach.JPG",
+    "faction": "Northern Realms",
+    "name": "BLUE STRIPES SCOUT",
+    "positions": "Siege",
+    "strength": 6
+  },
+  {
+    "Id": 6,
+    "art": "Images\\big-Beautiful.JPG",
+    "faction": "Northern Realms",
+    "name": "BLUE STRIPES Range",
+    "positions": "Range",
+    "strength": 6
+  },
+  {
+    "Id": 7,
+    "art": "Images\\big-Dandelion.JPG",
+    "faction": "Northern Realms",
+    "name": "BLUE STRIPES SCOUT",
+    "positions": "Siege",
+    "strength": 6
+  },
+  {
+    "Id": 8,
+    "art": "Images\\big-Dennis.JPG",
+    "faction": "Northern Realms",
+    "name": "BOTCHLING",
+    "positions": "Siege",
+    "strength": 6
+  },
+  {
+    "Id": 9,
+    "art": "Images\\big-Geralt.JPG",
+    "faction": "Northern Realms",
+    "name": "DANDELION",
+    "positions": "Siege",
+    "strength": 5
+  },
+  {
+    "Id": 10,
+    "art": "Images\\big-Eithne.JPG",
+    "faction": "Northern Realms",
+    "name": "Gearlt",
+    "positions": "Siege",
+    "strength": 6
+  },
+  {
+    "Id": 11,
+    "art": "Images\\big-Emiel.JPG",
+    "faction": "Northern Realms",
+    "name": "Ciri",
+    "positions": "Siege",
+    "strength": 6
+  },
+  {
+    "Id": 12,
+    "art": "Images\\big-fiend.JPG",
+    "faction": "Northern Realms",
+    "name": "Tester123",
+    "positions": "Siege",
+    "strength": 6
+  }
+]
