@@ -28,9 +28,7 @@
 
         
         <Button x:Name="button" Content="Deal" HorizontalAlignment="Left" Margin="44,290,0,0" VerticalAlignment="Top" Click="button_Click_1" ClickMode="Release"/>
-        <ListView x:Name="listView1">
-          <Image x:Name="P1Hand" Source="ms-appx:///Images/cardcover.jpg" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="121"  />
-        </ListView>
+       
 
 
         </Grid>

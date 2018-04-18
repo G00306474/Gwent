@@ -31,7 +31,7 @@ namespace Gwent2017
     public sealed partial class MainPage : Page
     {
         private string defaultImage = "ms-appx:///Images/cardcover.jpg";
-        List<clsCards> myList = new List<clsCards>();
+        private List<clsCards> myList = new List<clsCards>();
 
         public MainPage()
         {
@@ -40,7 +40,8 @@ namespace Gwent2017
         }
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            Debug.WriteLine("TEST");
+            
             //text1.Text = "Click event occurs on Hover.";
             Deal();
         }
@@ -65,83 +66,30 @@ namespace Gwent2017
                 p2++;
             }
 
-            if (myList != null)
-            {
-                loadLocalDataAsync();
-            }
+            CreateCardList();
 
-            // else, create the list from the file provided.
-            else { loadLocalDataAsync(); }
-            Round1(p1Cards, p2Cards,myList);
+            Round1(p1Cards, p2Cards, myList);
         }
 
-        private async void loadLocalDataAsync()
-        {
-            // Retrieve data from mydogs.txt
-            // get the file from the location that the app is installed
-            // then read the text
-            string filename = "test.json";
-            var file = await Package.Current.InstalledLocation.GetFileAsync(filename);
-
-            var result = await FileIO.ReadTextAsync(file);
-
-            // Parse the JSON data
-            try
-            {
-                var cardJList = JsonArray.Parse(result);
-                // Convert the JSON objects into list of cards
-                CreateCardList(cardJList);
-            }
-            catch (Exception e)
-            {
-                string trouble = e.Message;
-                throw;
-            }
-        }
+   
         #region Json array
-        private List<clsCards>  CreateCardList(JsonArray jsonData)
+        private List<clsCards>  CreateCardList()
         {
-            foreach (var item in jsonData)
+
+
+            string FilePath = Path.Combine(Package.Current.InstalledLocation.Path, "test.json");
+
+            using (StreamReader file = File.OpenText(FilePath))
             {
-                // get the object
-                var obj = item.GetObject();
 
-                clsCards card = new clsCards();
 
-                // get each key value pair and sort it to the appropriate elements
-                // of the class
-                foreach (var key in obj.Keys)
-                {
-                    IJsonValue value;
-                    if (!obj.TryGetValue(key, out value))
-                        continue;
+                var json = file.ReadToEnd();
+                var result = JsonConvert.DeserializeObject<RootObject>(json);
+                Debug.WriteLine(result.ToString());//wirte json to console 
 
-                    switch (key)
-                    {
-                        case "id":
-                            card.Id   = Convert.ToInt32((value.GetString()));
-                            break;
-                        case "name":
-                            card.name = value.GetString();
-                            break;
-                        case "faction":
-                            card.faction = value.GetString();
-                            break;
-                        case "positions":
-                            card.positions = value.GetString();
-                            break;
-                        case "strength":
-                             card.strength = (int)value.GetNumber();
-                            break;
-                        case "art":
-                            card.art = value.GetString();
-                            break;
-                    }
-                } // end foreach (var key in obj.Keys)
+               //var teseter= result.
+            }
 
-                myList.Add(card);
-
-            } // end foreach (var item in array)
             return myList;
         }
         #endregion
@@ -151,9 +99,14 @@ namespace Gwent2017
             int p1Score;
             int p2Score;
             int turn = 0;
-
-
-            P1Hand = myList[3];
+            Debug.WriteLine(myList.Count);
+            foreach (clsCards card in myList) {
+              //  Debug.WriteLine("Tester"+card.name);
+            }
+            
+           // P1Hand = myList[3];
+            //int id = 101;
+           // var cardToFind = myList.FirstOrDefault(card => card.Id.Any(id => id.P1Hand[i] == idToFind));
 
             if (turn == 0)
             {

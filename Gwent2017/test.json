@@ -1,43 +1,46 @@
-[
-  {
-    "Id": 1,
-    "art": "Images\\big-Assire.JPG",
-    "faction": "Northern Realms",
-    "name": "Bloody Baron",
-    "positions": "Siege",
-    "strength": 6
-  },
-  {
-    "Id": 2,
-    "art": "Images\\big-Assire.JPG",
-    "faction": "Northern Realms",
-    "name": "Bloody Baron",
-    "positions": "Siege",
-    "strength": 6
-  },
-  {
-    "Id": 3,
-    "art": "Images\\big-Assire.JPG",
-    "faction": "Northern Realms",
-    "name": "Bloody Baron",
-    "positions": "Siege",
-    "strength": 6
-  },
-  {
-    "Id": 4,
-    "art": "Images\\big-Assire.JPG",
-    "faction": "Northern Realms",
-    "name": "Bloody Baron",
-    "positions": "Siege",
-    "strength": 6
-  },
-  {
-    "Id": 5,
-    "art": "Images\\big-Assire.JPG",
-    "faction": "Northern Realms",
-    "name": "Bloody Baron",
-    "positions": "Siege",
-    "strength": 6
-  }
+{
+  "cards": [
 
-]
+    {
+      "Id": 1,
+      "art": "Images\\big-Assire.JPG",
+      "faction": "Northern Realms",
+      "name": "Bloody Baron",
+      "positions": "Siege",
+      "strength": 6
+    },
+    {
+      "Id": 2,
+      "art": "Images\\big-Assire.JPG",
+      "faction": "Northern Realms",
+      "name": "Bloody Baron",
+      "positions": "Siege",
+      "strength": 6
+    },
+    {
+      "Id": 3,
+      "art": "Images\\big-Assire.JPG",
+      "faction": "Northern Realms",
+      "name": "Bloody Baron",
+      "positions": "Siege",
+      "strength": 6
+    },
+    {
+      "Id": 4,
+      "art": "Images\\big-Assire.JPG",
+      "faction": "Northern Realms",
+      "name": "Bloody Baron",
+      "positions": "Siege",
+      "strength": 6
+    },
+    {
+      "Id": 5,
+      "art": "Images\\big-Assire.JPG",
+      "faction": "Northern Realms",
+      "name": "Bloody Baron",
+      "positions": "Siege",
+      "strength": 6
+    }
+
+  ]
+}
