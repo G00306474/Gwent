@@ -32,7 +32,7 @@ namespace Gwent2017
     {
         private static string JsonFile = "test.json";
         private string defaultImage = "ms-appx:///Images/cardcover.jpg";
-        private List<Card> myList = new List<Card>();
+        private List<Card> deckOfCards = new List<Card>();
         private List<Card> p1Hand = new List<Card>();
         private List<Card> p2Hand = new List<Card>();
         private Random rnd = new Random();
@@ -74,7 +74,7 @@ namespace Gwent2017
 
             CreateCardList();
 
-            Round1(p1Cards, p2Cards, myList);
+            Round1(p1Cards, p2Cards, deckOfCards);
         }
 
 
@@ -84,28 +84,28 @@ namespace Gwent2017
             using (StreamReader r = File.OpenText("test.json"))
             {
                 string json = r.ReadToEnd();
-                myList = JsonConvert.DeserializeObject<List<Card>>(json);
+                deckOfCards = JsonConvert.DeserializeObject<List<Card>>(json);
                // Debug.WriteLine(json);
             }
 
 
-            return myList;
+            return deckOfCards;
         }
 
         #endregion
         #region PlayersTurn
-        private void Round1(int[] p1Cards, int[] p2Cards, List<Card> myList)
+        private void Round1(int[] p1Cards, int[] p2Cards, List<Card> deckOfCards)
         {
             int p1Score;
             int p2Score;
             int turn = 0;
             int t = 0;
             int i = 0;
-            Debug.WriteLine("size"  + myList.Count);
-            #region Display cards in myList
+            Debug.WriteLine("size"  + deckOfCards.Count);
+            #region Display cards in deckOfCards
             Debug.WriteLine("  ");
             Debug.WriteLine("Cards Read in From Json ");
-            foreach (Card card in myList)
+            foreach (Card card in deckOfCards)
              {
                  Debug.WriteLine("  " );
                  Debug.WriteLine("Card: " + t);
@@ -122,23 +122,23 @@ namespace Gwent2017
             /*while runs 5 times and adds 5 cards from the lsit to each players hand*/
             while (i != 5)
             {
-                foreach (Card card in myList)
+                foreach (Card card in deckOfCards)
                 {
                     if (card.Id == p1Cards[i])
                     {
-                        var moveCard = myList[i];
-                        // myList.RemoveAt(i);
+                        var moveCard = deckOfCards[i];
+                        // deckOfCards.RemoveAt(i);
                         p1Hand.Add(card);
                         
                     }
 
                 }
-                foreach (Card card in myList)
+                foreach (Card card in deckOfCards)
                 {
                     if (card.Id == p2Cards[i])
                     {
-                        var moveCard = myList[i];
-                        // myList.RemoveAt(i);
+                        var moveCard = deckOfCards[i];
+                        // deckOfCards.RemoveAt(i);
                         p2Hand.Add(card);
 
                     }
