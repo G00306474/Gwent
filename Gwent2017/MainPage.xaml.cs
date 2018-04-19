@@ -49,6 +49,10 @@ namespace Gwent2017
             //text1.Text = "Click event occurs on Hover.";
             Deal();
         }
+        private void button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Windows.ApplicationModel.Core.CoreApplication.Exit();//closes the app 
+        }
 
         public void Deal()
         {

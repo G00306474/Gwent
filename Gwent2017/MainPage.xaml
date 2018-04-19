@@ -12,7 +12,7 @@
         <Grid>
             <StackPanel>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                    <Button x:Name="button1" Content="Quit" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Button x:Name="button1" Content="Quit" HorizontalAlignment="Left" VerticalAlignment="Top" Click="button_Click_2" ClickMode="Release" RenderTransformOrigin="-4.04,-7.5"/>
                     <Button x:Name="button" Content="Deal" HorizontalAlignment="Left"  VerticalAlignment="Top" Click="button_Click_1" ClickMode="Release" RenderTransformOrigin="-4.04,-7.5"/>
                     <Button x:Name="button2" Content="Forfeit" HorizontalAlignment="Left"  VerticalAlignment="Top" />
                     <StackPanel>
