@@ -12,14 +12,20 @@
         <Grid>
             <StackPanel>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                    <Button x:Name="button1" Content="Quit" HorizontalAlignment="Left" VerticalAlignment="Top" Click="button_Click_2" ClickMode="Release" RenderTransformOrigin="-4.04,-7.5"/>
-                    <Button x:Name="button" Content="Deal" HorizontalAlignment="Left"  VerticalAlignment="Top" Click="button_Click_1" ClickMode="Release" RenderTransformOrigin="-4.04,-7.5"/>
-                    <Button x:Name="button2" Content="Forfeit" HorizontalAlignment="Left"  VerticalAlignment="Top" />
+                    <Button x:Name="button1" Content="Quit" HorizontalAlignment="Left"
+                            VerticalAlignment="Top" Click="button_Click_2" ClickMode="Release" RenderTransformOrigin="-4.04,-7.5"/>
+                    <Button x:Name="button" Content="Deal" HorizontalAlignment="Left"
+                            VerticalAlignment="Top" Click="button_Click_1" ClickMode="Release" RenderTransformOrigin="-4.04,-7.5"/>
+                    <Button x:Name="button2" Content="Forfeit" HorizontalAlignment="Left"
+                            VerticalAlignment="Top" />
                     <StackPanel>
                         <!-- Stackpanel Play Area-->
-                        <Border x:Name="OpRowRange" BorderBrush="Black" HorizontalAlignment="Left" Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
-                        <Border x:Name="OpRowMid" BorderBrush="Black" HorizontalAlignment="Left" Height="100"  VerticalAlignment="Top" Width="993"  BorderThickness="2,2,2,2"/>
-                        <Border x:Name="OpRowNear" BorderBrush="Black" HorizontalAlignment="Left" Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
+                        <Border x:Name="OpRowRange" BorderBrush="Black" HorizontalAlignment="Left" 
+                                Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
+                        <Border x:Name="OpRowMid" BorderBrush="Black" HorizontalAlignment="Left" 
+                                Height="100"  VerticalAlignment="Top" Width="993"  BorderThickness="2,2,2,2"/>
+                        <Border x:Name="OpRowNear" BorderBrush="Black" HorizontalAlignment="Left" 
+                                Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
                         <StackPanel>
                             <Image x:Name="OpGrave" Source="ms-appx:///Images/cardcover.jpg" HorizontalAlignment="Right" Height="100"  VerticalAlignment="Top" Width="121"  />
                         </StackPanel>
@@ -33,9 +39,14 @@
                             <Image x:Name="P1Grave" Source="ms-appx:///Images/cardcover.jpg" HorizontalAlignment="Right" Height="100"  VerticalAlignment="Top" Width="121"  />
                         </StackPanel>
                         <!-- Stackpanel Grave-->
-                        <Border x:Name="P1RowNear" BorderBrush="Black" HorizontalAlignment="Left" Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
-                        <Border x:Name="P1RowRange" BorderBrush="Black" HorizontalAlignment="Left" Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
-                        <Border x:Name="P1RowMid" BorderBrush="Black" HorizontalAlignment="Left" Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
+                        <Border x:Name="P1RowNear" BorderBrush="Black" HorizontalAlignment="Left" 
+                                Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2">
+                            <Image x:Name="P1RowNearImage" Height="246" Width="66"  /> 
+                        </Border>
+                        <Border x:Name="P1RowRange" BorderBrush="Black" HorizontalAlignment="Left" 
+                                Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
+                        <Border x:Name="P1RowMid" BorderBrush="Black" HorizontalAlignment="Left" 
+                                Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
                     </StackPanel>
                     <!-- Stackpanel Play Area-->
                 </StackPanel>
@@ -46,7 +57,7 @@
                             <DataTemplate >
                                 <StackPanel>
                                     <!-- that will dispaly the binded data will als dispaly the text each time its called -->
-                                    <Image Source="{Binding art}" Tapped="Image_Tapped"/>
+                                    <Image Height="246" Width="66" Source="{Binding art}" Tapped="Image_Tapped"/>
                                 </StackPanel>
                             </DataTemplate>
                         </GridView.ItemTemplate>

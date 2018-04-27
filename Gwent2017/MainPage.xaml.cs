@@ -185,6 +185,7 @@ namespace Gwent2017
             }
             #endregion
             DisplayHand(p1Hand,p2Hand);
+
             if (turn == 0)
             {
                 for ( i = 0; i == 5; i++)
@@ -217,28 +218,20 @@ namespace Gwent2017
 
             cardArt.ItemsSource = collection;
         }
-       
+
         #endregion
 
         private void Image_Tapped(object sender, TappedRoutedEventArgs e)
         {
+          
 
-            //Contains("siege")
+           // Uri imageUri = new Uri(defaultImage, UriKind.Relative);
+           // BitmapImage imageBitmap = new BitmapImage(imageUri);
+           // Image myImage = new Image();
+           // myImage.Source = imageBitmap;
 
-            if (sender.Equals("siege"))
-            {
-
-                P1RowRange.Background = new SolidColorBrush(Colors.Yellow);
-
-            }
-          /*  if (postion.Equals("Range"))
-            {
-                P1RowRange.Background = new SolidColorBrush(Colors.Yellow);
-            }
-            if (postion.Equals("Combat"))
-            {
-                P1RowRange.Background = new SolidColorBrush(Colors.Yellow);
-            }*/
+           //P1RowNearImage.Source = imageBitmap;
+            
         }
     }//close mainpage
 }
