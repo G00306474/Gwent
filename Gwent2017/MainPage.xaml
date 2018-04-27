@@ -5,10 +5,10 @@
     xmlns:local="using:Gwent2017"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Height="Auto" Width="Auto">
 
-    <ScrollViewer ZoomMode="Enabled" MaxZoomFactor="10"
-              HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Visible">
+    <ScrollViewer Height ="600" VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Visible"
+                  HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Visible">
         <Grid>
             <StackPanel>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
@@ -23,7 +23,7 @@
                         <StackPanel>
                             <Image x:Name="OpGrave" Source="ms-appx:///Images/cardcover.jpg" HorizontalAlignment="Right" Height="100"  VerticalAlignment="Top" Width="121"  />
                         </StackPanel>
-                                <Border x:Name="Divider" BorderBrush="Black"   HorizontalAlignment="Left" Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2">
+                        <Border x:Name="Divider" BorderBrush="Black"   HorizontalAlignment="Left" Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2">
                             <Border.Background>
                                 <AcrylicBrush TintColor="#CC813939"/>
                             </Border.Background>
@@ -36,18 +36,17 @@
                         <Border x:Name="P1RowNear" BorderBrush="Black" HorizontalAlignment="Left" Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
                         <Border x:Name="P1RowRange" BorderBrush="Black" HorizontalAlignment="Left" Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
                         <Border x:Name="P1RowMid" BorderBrush="Black" HorizontalAlignment="Left" Height="100"  VerticalAlignment="Top" Width="993" BorderThickness="2,2,2,2"/>
-
                     </StackPanel>
                     <!-- Stackpanel Play Area-->
-
                 </StackPanel>
                 <StackPanel>
-                    <GridView ItemsSource="{Binding collection}" x:Name="cardArt">
+                    <GridView ItemsSource="{Binding collection}" x:Name="cardArt" >
+                        <!--Height="396" Width="211"-->
                         <GridView.ItemTemplate>
                             <DataTemplate >
                                 <StackPanel>
                                     <!-- that will dispaly the binded data will als dispaly the text each time its called -->
-                                    <Image Source="{Binding art}"/>
+                                    <Image Source="{Binding art}" Tapped="Image_Tapped"/>
                                 </StackPanel>
                             </DataTemplate>
                         </GridView.ItemTemplate>
@@ -56,24 +55,6 @@
             </StackPanel>
 
         </Grid>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </ScrollViewer>
 

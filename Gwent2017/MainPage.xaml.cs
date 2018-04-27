@@ -36,7 +36,7 @@ namespace Gwent2017
         private List<Card> p1Hand = new List<Card>();
         private List<Card> p2Hand = new List<Card>();
         private Random rnd = new Random();
-
+        private Boolean cardsDealt =false;
         public MainPage()
         {
             this.InitializeComponent();
@@ -60,22 +60,24 @@ namespace Gwent2017
             int p2 = 0;
             int[] p1Cards = new int[5];
             int[] p2Cards = new int[5];
-
-            
             
 
-            while (p1 != 5)
-            {
-                p1Cards[p1] = rnd.Next(1, 5);
-                p1++;
-            }
 
-            while (p2 != 5)
+            if (cardsDealt == false)
             {
-                p2Cards[p2] = rnd.Next(1, 5);
-                p2++;
-            }
+                while (p1 != 5)
+                {
+                    p1Cards[p1] = rnd.Next(1, 5);
+                    p1++;
+                }
 
+                while (p2 != 5)
+                {
+                    p2Cards[p2] = rnd.Next(1, 5);
+                    p2++;
+                }
+                cardsDealt=true;
+            }
             CreateCardList();
 
             Round1(p1Cards, p2Cards, deckOfCards);
@@ -215,24 +217,28 @@ namespace Gwent2017
 
             cardArt.ItemsSource = collection;
         }
-        private void Card_Tapped(object sender, TappedRoutedEventArgs e)
+       
+        #endregion
+
+        private void Image_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            String postion = "test";
-            if (postion.Equals("Siege"))
+
+            //Contains("siege")
+
+            if (sender.Equals("siege"))
             {
 
                 P1RowRange.Background = new SolidColorBrush(Colors.Yellow);
-                //P1RowRange.Tapped = 
+
             }
-            if (postion.Equals("Range"))
+          /*  if (postion.Equals("Range"))
             {
                 P1RowRange.Background = new SolidColorBrush(Colors.Yellow);
             }
             if (postion.Equals("Combat"))
             {
                 P1RowRange.Background = new SolidColorBrush(Colors.Yellow);
-            }
+            }*/
         }
-        #endregion
     }//close mainpage
 }
